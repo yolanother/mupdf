@@ -9,13 +9,17 @@ include $(TOP_LOCAL_PATH)/ThirdParty.mk
 include $(CLEAR_VARS)
 
 LOCAL_C_INCLUDES := \
-	$(MUPDF_ROOT)/draw \
-	$(MUPDF_ROOT)/fitz \
-	$(MUPDF_ROOT)/pdf
+	$(LOCAL_PATH)/draw \
+	$(LOCAL_PATH)/fitz \
+	$(LOCAL_PATH)/pdf
 LOCAL_CFLAGS :=
 LOCAL_MODULE    := mupdf
 LOCAL_SRC_FILES := mupdf.c
 LOCAL_STATIC_LIBRARIES := mupdfcore mupdfthirdparty
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_SHARED_LIBRARIES := libjnigraphics liblog
 
 LOCAL_LDLIBS    := -lm -llog -ljnigraphics
 
